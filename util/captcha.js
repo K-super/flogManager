@@ -1,5 +1,5 @@
 const svgCaptcha = require('svg-captcha');
- 
+
 async function getCaptcha(ctx) {
     //  若创建算数式验证码，将create改为createMathExpr
     const newCaptcha = svgCaptcha.create({
@@ -18,7 +18,7 @@ async function getCaptcha(ctx) {
         value : newCaptcha.text.toLowerCase()
     }
 }
- 
+
 module.exports = {
     getCaptcha
 }

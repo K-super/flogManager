@@ -28,20 +28,24 @@ async function set(key, val, timeout = 60 * 60) {
  * @param {string} key 键
  */
 async function del(key) {
-   redisClient.del(key);
+  return new Promise((resolve,reject)=>{
+    resolve(redisClient.del(key))
+  })
 }
 
 /**
  * redis get
  * @param {string} key 键
  */
-async function get(key) {
+async function get(key,type = 'json') {
   const promise = new Promise((resolve, reject) => {
     redisClient.get(key, (err, val) => {
       try {
-        resolve(
-          JSON.parse(val)
-        )
+        if (type == 'json') {
+          resolve(JSON.parse(val))
+        } else {
+          resolve(val)
+        }
       } catch (err) {
         reject(err)
       }

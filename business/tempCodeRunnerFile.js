@@ -1,0 +1,1 @@
+  if( !auth.auth_session(ctx,next)) auth.auth_session_set(ctx,next,userinfo);

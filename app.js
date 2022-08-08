@@ -15,6 +15,7 @@ const redisStore = require('koa-redis')
 
 
 
+
 // 配置session中间件
 app.keys = ['IOdhakw23792#'] // session 密钥
 app.use(session({
